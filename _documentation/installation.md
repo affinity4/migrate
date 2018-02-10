@@ -14,5 +14,5 @@ right_code_blocks:
   - code_block: |-
       composer require affinity4/migrate
     title: Composer
-    language: PHP
+    language: Bash
 ---
