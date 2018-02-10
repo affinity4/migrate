@@ -1,0 +1,27 @@
+{
+    "up": {
+        "rename": {
+            "from": "users",
+            "to": "users2"
+        },
+        "add-columns": {
+            "table": "users2",
+            "columns": {
+                "column1": "",
+                "column2": ""
+            }
+        }
+    },
+    "down": {
+        "drop-columns": {
+            "table": "users_2",
+            "columns": [
+                "column1", "column2"
+            ]
+        },
+        "rename": {
+            "from": "users2",
+            "to": "users"
+        }
+    }
+}

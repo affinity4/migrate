@@ -19,7 +19,7 @@ class CreateMigrationCommand extends Command
 
     private function setSplit($name)
     {
-        $this->split = explode('__', $name);
+        $this->split = explode('::', $name);
     }
 
     private function setAction($name)
@@ -74,11 +74,13 @@ class CreateMigrationCommand extends Command
         if (array_key_exists('migration_dirs', $this->config) && !empty($this->config['migration_dirs'])) {
             if (is_array($this->config['migration_dirs'])) {
                 echo 'This feature is not built yet :(';
+                // TODO: Build this to allow option for dev/prod migrations to be separate
             } else {
                 $migration_dir = $this->config['migration_dirs'];
             }
         }
         
+        $name = str_replace(':', '_', $name);
         $sep = DIRECTORY_SEPARATOR;
         $dir = $cwd . $sep . $migration_dir;
         $timestamp = date('YmdHis');
