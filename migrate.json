@@ -1,0 +1,4 @@
+{
+    "timezone": "Europe/Dublin",
+    "migration_dirs": "./migrations"
+}
