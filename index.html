@@ -8,7 +8,7 @@ title: API Docs
 		<section class="doc-content">
 			<section class="left-docs">
 				<h1 class="heading heading-01">
-					<a id="{{ doc.id | replace: '/', '' | replace: '.', '' }}">
+					<a class="link heading__link {{ doc.id | replace: '/', '' | replace: '.', '' }}" id="{{ doc.id | replace: '/', '' | replace: '.', '' }}">
 						{{ doc.title }}
 						{% if doc.type %}
 							<span class="endpoint {{ doc.type }}"></span>
