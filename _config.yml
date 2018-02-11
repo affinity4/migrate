@@ -10,9 +10,9 @@ collections:
   documentation:
     title: Documentation
     position: 1
-  api:
-    title: APIs
-    position: 2
+  # api:
+  #   title: APIs
+  #   position: 2
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
