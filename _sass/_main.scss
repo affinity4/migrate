@@ -556,6 +556,35 @@ header {
 // Custom
 // ----------
 
+h {
+	&1 {
+		font-size: 1.5em;
+	}
+
+	&2 {
+		font-size: 1.333em;
+	}
+
+	&3 {
+		font-size: 1.25em;
+	}
+
+	&4 {
+		font-size: 1em;
+		font-weight: bold;
+	}
+
+	&5 {
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+
+	&6 {
+		font-size: 0.8em;
+		font-weight: bold;	
+	}
+}
+
 .heading {
 	&-01 {
 		font-size: 1.5em;	
