@@ -1,15 +1,13 @@
 ---
-title: Authentication
+title: Migrate Console
 position: 2
 parameters:
   - name:
     content:
 content_markdown: |-
-  #### Migrate Console
-
   The format for the Migrate Console commands is `action:command table-action:action-modifier::table`
 
-  ##### Create New Migration
+  ### Create New Migration
 
   To create a new migration you will use the `migrate create:migration` command
 
