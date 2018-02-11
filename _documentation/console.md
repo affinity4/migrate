@@ -5,11 +5,15 @@ parameters:
   - name:
     content:
 content_markdown: |-
-  # Migrate Console
+  #### Migrate Console
 
-  ## migrate create:migration <action::table>
+  The format for the Migrate Console commands is `action:command table-action:action-modifier::table`
 
-  To create a migration you will need to use the `migrate create:migration` command
+  ##### Create New Migration
+
+  To create a new migration you will use the `migrate create:migration` command
+
+  This will create a migration file in the "migrations" directory in the root of your project, or the directory specified in the migrate.json file.
 
 left_code_blocks:
   - code_block:

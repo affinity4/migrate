@@ -568,6 +568,39 @@ header {
 	display: none;
 }
 
+// ----------
+// Custom
+// ----------
+
+.heading {
+	&-01 {
+		font-size: 1.5em;	
+	}
+
+	&-02 {
+		font-size: 1.3333em;
+	}
+
+	&-03 {
+		font-size: 1.25em;
+	}
+
+	&-04 {
+		font-size: 1em;
+		font-weight: bold;
+	}
+
+	&-05 {
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+
+	&-05 {
+		font-size: 0.8em;
+		font-weight: bold;
+	}
+}
+
 .page-title__link {
 	color: white;
 	text-transform: uppercase;

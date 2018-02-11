@@ -7,7 +7,7 @@ title: API Docs
 	{% for doc in sorted_docs %}
 		<section class="doc-content">
 			<section class="left-docs">
-				<h3>
+				<h1 class="heading heading-01">
 					<a id="{{ doc.id | replace: '/', '' | replace: '.', '' }}">
 						{{ doc.title }}
 						{% if doc.type %}
