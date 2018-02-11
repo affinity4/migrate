@@ -1,4 +1,5 @@
 {
     "timezone": "Europe/Dublin",
-    "migration_dirs": "./migrations"
+    "dialect": "mysql",
+    "migration_dirs": "migrations"
 }
