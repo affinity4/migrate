@@ -16,7 +16,7 @@ class Dbo extends \PDO
 {
     protected static $instance;
 
-    private $config = [
+    protected $config = [
         'driver'    => '',
         'host'      => '',
         'name'      => '',

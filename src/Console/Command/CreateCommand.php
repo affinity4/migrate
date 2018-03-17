@@ -7,8 +7,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreateMigrationCommand extends Command
+class CreateCommand extends Command
 {
+    use \Affinity4\Migrate\Console\Command\OutputMessageTrait;
     use \Affinity4\Migrate\Console\Command\ConfigTrait;
     use \Affinity4\Migrate\Core\TimestampTrait;
 
@@ -36,35 +37,13 @@ class CreateMigrationCommand extends Command
     {
         $this->cwd = getcwd();
         $this->config = (array) $this->getConfigAsArray();
-        $this->migration_dirs = $this->setMigrationsDir($this->config);
+        $this->migration_dirs = $this->getMigrationDirs($this->config);
 
-        $this->setName('create:migration')
+        $this->setName('create')
             ->addArgument('name', InputArgument::REQUIRED, 'The name of the migration e.g. create_table_users')
             ->addArgument('config', InputArgument::OPTIONAL, 'The location of the migrate.json config file')
             ->setDescription("Create a migration file")
             ->setHelp('This will generate a migration JSON file in your migrations folder');
-    }
-
-    private function outputMessage($lines, $output)
-    {
-        $max = 0;
-        foreach ($lines as $line) {
-            $count = strlen($line);
-
-            if ($max <= $count) {
-                $max = $count;
-            }
-        }
-
-        $rule = '';
-        for ($n = 0; $n < $max; $n++) {
-            $rule .= '-';
-        }
-
-        array_splice($lines, 0, 0, $rule);
-        array_splice($lines, 2, 0, $rule);
-
-        $output->writeln($lines);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

@@ -1,8 +1,31 @@
 <?php
 namespace Affinity4\Migrate\Console\Command;
 
+/**
+ * --------------------------------------------------
+ * ConfigTrait
+ * --------------------------------------------------
+ * 
+ * Trait uses to get config array and values from 
+ * JSON config file(s)
+ * 
+ * @author Luke Watts <luke@affinity4.ie>
+ * 
+ * @since 0.0.1
+ */
 trait ConfigTrait
 {
+    /**
+     * --------------------------------------------------
+     * Get Config As Array
+     * --------------------------------------------------
+     * 
+     * Gets json file and returns as php array
+     * 
+     * @author Luke Watts <luke@affinity4.ie>
+     * 
+     * @since 0.0.1
+     */
     public function getConfigAsArray()
     {
         $cwd = getcwd();
@@ -13,7 +36,20 @@ trait ConfigTrait
         return json_decode($contents);
     }
 
-    public function setMigrationsDir(array $config)
+    /**
+     * --------------------------------------------------
+     * Get Migration Dirs
+     * --------------------------------------------------
+     * 
+     * Get migration directory|directories from config
+     * 
+     * @author Luke Watts <luke@affinity4.ie>
+     * 
+     * @since 0.0.1
+     * 
+     * @param array $config
+     */
+    public function getMigrationDirs(array $config)
     {
         $migrations_dir = 'migrations';
 

@@ -3,28 +3,26 @@ namespace Affinity4\Migrate\File;
 
 class Factory
 {
-    public static function createTable()
+    public static function createTable($table = '')
     {
         return [
             'up' => [
                 'create' => [
-                    'table' => 'users',
+                    'table' => $table,
                     'columns' => [
-                        'id' => 'int unsigned not null primary key auto_increment',
-                        'created' => 'datetime not null default 0',
-                        'modified' => 'datetime not null on update current_timestamp default current_timestamp'
+
                     ]
                 ]
             ],
             'down' => [
                 'drop' => [
-                    'table' => 'users'
+                    'table' => $table
                 ]
             ]
         ];
     }
 
-    public static function alterTable($action)
+    public static function alterTable($action, $rename_from = '', $rename_to = '')
     {
         switch ($action) {
             case 'rename' :
@@ -32,16 +30,16 @@ class Factory
                     'up' => [
                         'alter-table' => [
                             'rename' => [
-                                'from' => '',
-                                'to' => ''
+                                'from' => $rename_from,
+                                'to' => $rename_to
                             ]
                         ]
                     ],
                     'down' => [
                         'alter-table' => [
                             'rename' => [
-                                'from' => '',
-                                'to' => ''
+                                'from' => $rename_to,
+                                'to' => $rename_from
                             ]
                         ]
                     ]
@@ -84,10 +82,23 @@ class Factory
 
     public static function create($command, $migration_file_path)
     {
+        $tables = explode('__', $command);
+            
+        if (count($tables) === 3) {
+            $rename_from = $tables[1];
+            $rename_to = $tables[2];
+        } else {
+            $rename_from = '';
+            $rename_to = '';
+        }
+
         $actions = explode('_', $command);
         switch ($actions[0]) {
             case 'alter-table' :
-                $migration = self::alterTable($actions[1]);
+                $migration = self::alterTable($actions[1], $rename_from, $rename_to);
+            break;
+            case 'create-table' :
+                $migration = self::createTable($actions[2]);
             break;
             default :
                 $migration = self::createTable();

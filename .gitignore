@@ -20,3 +20,6 @@ composer.lock
 
 # composer installed dependencies
 vendor
+
+# Custom
+migrations/

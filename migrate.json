@@ -1,5 +1,12 @@
 {
     "timezone": "Europe/Dublin",
     "dialect": "mysql",
-    "migration_dirs": "migrations"
+    "migration_dirs": "migrations",
+    "database": {
+        "host": "127.0.0.1",
+        "name": "affinity4_migrate_tests",
+        "user": "root",
+        "pass": "",
+        "charset": "utf8"
+    }
 }
